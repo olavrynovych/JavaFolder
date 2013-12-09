@@ -21,6 +21,7 @@ public class ExecutionClass {
                 "6. Right Join. \n " +
                 "Press 7 for getting not implemented exception");
         Scanner readLine = new Scanner(System.in);
+        //local code review (vtegza): use camel case names for variable, ex: ukraine @ 09.12.13
         Country Ukraine = new Country.Builder()
                 .fullName("Ukraine")
                 .capital("Kiev")
@@ -70,6 +71,7 @@ public class ExecutionClass {
             case 4: executionClass.Task4(firstArray, secondArray); break;
             case 5: executionClass.Task5(firstArray, secondArray); break;
             case 6: executionClass.Task6(firstArray, secondArray); break;
+            //local code review (vtegza): use UnsupportedOperationException for such stuff, NotImplementedException - is not part of sun specific classes @ 09.12.13
             case 7: throw new NotImplementedException();
             default: System.out.println("Task does not exist!");
         }
@@ -105,6 +107,7 @@ public class ExecutionClass {
     public Country [] AddingArray(Country [] array1, Country [] array2){
         int k=array1.length+array2.length;
         Country [] result1=new Country[k];
+        //local code review (vtegza): use arrayCopy @ 09.12.13
         for(int i=0; i< array1.length;i++)
             result1[i]= array1[i];
         for(int j =0; j<array2.length; j++)
@@ -119,10 +122,11 @@ public class ExecutionClass {
 
     public Country [] MergeArrays(Country [] arr1, Country [] arr2){
         Country [] rez = new Country [arr1.length+arr2.length];
-
+//local code review (vtegza): use arrayCopy @ 09.12.13
         for(int i=0; i<arr1.length;i++)
             rez[i]=arr1[i];
         int index=arr1.length;
+        //local code review (vtegza): use for each loop @ 09.12.13
         for(int i=0; i<arr2.length; i++)
             for(int j=0; j<arr1.length;j++)
                 if(arr2[i]!=arr1[j] && j==arr1.length-1){
@@ -134,6 +138,7 @@ public class ExecutionClass {
     public Country [] InnerJoin(Country [] arr1, Country [] arr2){
         Country [] rez=new Country[arr1.length];
         int index=0;
+        //local code review (vtegza): for each @ 09.12.13
         for (int i=0; i<arr1.length; i++)
             for (int j=0; j<arr2.length; j++)
                 if (arr1[i]==arr2[j]){
@@ -146,6 +151,7 @@ public class ExecutionClass {
     public Country [] OuterJoin(Country [] arr1, Country [] arr2){
         Country [] res = new Country[arr1.length+arr2.length];
         int index=0;
+        //local code review (vtegza): for each @ 09.12.13
         for (int i=0; i<arr1.length;i++)
             for (int j=0; j< arr2.length; j++)
                 if (arr1[i]!=arr2[j] && j==arr2.length-1){
@@ -163,9 +169,11 @@ public class ExecutionClass {
     public Country [] LeftJoin(Country [] arr1, Country [] arr2){
         int k=arr1.length+arr2.length;
         Country [] result=new Country[k];
+        //local code review (vtegza): use arrayCopy @ 09.12.13
         for(int i=0; i< arr1.length;i++)
             result[i]= arr1[i];
         int index=arr1.length;
+        //local code review (vtegza): for each @ 09.12.13
         for (int i=0; i<arr2.length; i++)
             for (int j=0; j<arr1.length; j++)
                 if (arr2[i]==arr1[j]){
@@ -178,9 +186,11 @@ public class ExecutionClass {
     public Country [] RightJoin(Country [] arr1, Country [] arr2){
         int k=arr1.length+arr2.length;
         Country [] result=new Country[k];
+        //local code review (vtegza): use arrayCopy @ 09.12.13
         for(int i=0; i< arr2.length;i++)
             result[i]= arr2[i];
         int index=arr2.length;
+        //local code review (vtegza): for each @ 09.12.13
         for (int i=0; i<arr1.length; i++)
             for (int j=0; j<arr2.length; j++)
                 if (arr1[i]==arr2[j]){
@@ -190,8 +200,11 @@ public class ExecutionClass {
                 }
         return removeNullElements(result,index);
     }
+
+    //local code review (vtegza): name parameters more specific, ex: countries @ 09.12.13
     public Country [] removeNullElements(Country [] arr, int countOfElements){
         Country [] rez = new Country [countOfElements];
+        //local code review (vtegza): use arrayCopy @ 09.12.13
         for (int i=0; i<countOfElements; i++)
             rez[i] = arr[i];
         return rez;

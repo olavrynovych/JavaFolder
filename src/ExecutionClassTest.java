@@ -12,6 +12,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 
 public class ExecutionClassTest {
+    //local code review (vtegza): use camel cases for variables @ 09.12.13
+    //local code review (vtegza): could be declarated as constant @ 09.12.13
     Country Ukraine = new Country.Builder()
             .fullName("Ukraine")
             .capital("Kiev")
@@ -58,6 +60,7 @@ public class ExecutionClassTest {
         Country [] firstCountryArray = new Country[]{Ukraine, Poland, Portugal};
         Country [] secondCountryArray = new Country[]{Russia, CzechRepublic, Spain};
         Country [] expectedResult = new Country[]{};
+        //local code review (vtegza): assertations and call should be on different lines @ 09.12.13
         assertArrayEquals(expectedResult, exClass.InnerJoin(firstCountryArray, secondCountryArray));
     }
 
@@ -169,6 +172,7 @@ public class ExecutionClassTest {
         assertNotSame(expectedResult, exClass.OuterJoin(firstCountryArray, secondCountryArray));
     }
 
+    //local code review (vtegza): remove code if it is not needed @ 09.12.13
     @Test
     public void testRemoveNullElements() throws Exception {
 
